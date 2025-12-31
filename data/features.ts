@@ -1,5 +1,5 @@
 import { StaticImageData } from 'next/image';
-import kamera from '@/public/feature/kamera.png';
+import kamera from 'pub/feature/kamera.png';
 import fire from 'pub/feature/fire.png';
 import history from 'pub/feature/history.png';
 import chain from 'pub/feature/chain.png';
@@ -12,7 +12,7 @@ type FeatureItem = {
   desc: string;
   description: string;
   points?: string[];
-  logo?: StaticImageData;
+  logo: StaticImageData;
 };
 
 export const FEATURES: FeatureItem[] = [

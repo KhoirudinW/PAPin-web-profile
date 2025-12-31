@@ -25,6 +25,13 @@ const DetailedNewsPage = () => {
   const params = useParams();
   const { slug } = params;
 
+  const BCItems = [
+    {label: 'Home', href: '/'},
+    {label: 'Berita', href: '/news'},
+    {label: slug as string},
+  ]
+
+  
   const [newsItem, setNewsItem] = useState<NewsItemWithSlug | null>(null);
   const [likes, setLikes] = useState<number>(0);
   const [views, setViews] = useState<number>(0);
@@ -52,12 +59,7 @@ const DetailedNewsPage = () => {
     setLikes((prev) => (isLiked ? prev - 1 : prev + 1));
   };
 
-  const BCItems = [
-    {label: 'Home', href: '/'},
-    {label: 'Berita', href: '/news'},
-    {label: slug},
-  ]
-
+  
   if (!newsItem) {
     return <div className="min-h-screen flex items-center justify-center">News not found</div>;
   }
