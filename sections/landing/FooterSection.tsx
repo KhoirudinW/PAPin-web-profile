@@ -14,7 +14,7 @@ function FooterSection() {
                         <p className='fonts-lg max-w-127.75 '>Berikan saran untuk pengembangan produk dan peningkatan kenyamanan pengguna.</p>
                 </div>
                 <div className="flex flex-col w-[85%] md:max-w-100 lg:w-full gap-2 lg:mx-0 mx-auto">
-                    <textarea name="" className='inp-err-area text-gray' placeholder='Massage' id="" cols={10} rows={5}></textarea>
+                    <textarea name="" className='inp-err-area text-gray' placeholder='Message' id="" cols={10} rows={5}></textarea>
                     <button className='btn btn-third-solid'>kirim</button>
                 </div>
             </div>
