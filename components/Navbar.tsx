@@ -32,7 +32,7 @@ const NavItems = [
   },
   {
     title:'Mulai hari ini',
-    link:'https://papin-dashboard-nqgv.vercel.app/dashboard'
+    link:'https://papin-dashboard-nqgv.vercel.app/login'
   }
 ]
 

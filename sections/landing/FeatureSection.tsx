@@ -22,7 +22,7 @@ function FeatureSection() {
                     })}
                 </div>
                 <div className="flex flex-col md:flex-row gap-x-6 gap-y-2">
-                    <Link href={'https://papin-dashboard-nqgv.vercel.app/dashboard'} className='btn btn-primary-solid'>Mulai hari ini</Link>
+                    <Link href={'https://papin-dashboard-nqgv.vercel.app/login'} className='btn btn-primary-solid'>Mulai hari ini</Link>
                     <Link href='/feature' className='btn btn-primary-stroke'>Lihat selengkapnya</Link>
                 </div>
             </div>

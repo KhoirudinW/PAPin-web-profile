@@ -20,7 +20,7 @@ function HeroSection() {
             </p>
 
             <div className="flex flex-row flex-wrap gap-y-2 gap-x-6 md:justify-start justify-center animate-fade-scale delay-2">
-              <Link href={'https://papin-dashboard-nqgv.vercel.app/dashboard'} className="btn btn-primary-solid cursor-pointer">
+              <Link href={'https://papin-dashboard-nqgv.vercel.app/login'} className="btn btn-primary-solid cursor-pointer">
                 Mulai bersama
               </Link>
               <Link
