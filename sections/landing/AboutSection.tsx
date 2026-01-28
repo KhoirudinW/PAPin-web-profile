@@ -69,8 +69,8 @@ function AboutSection() {
                     <h2 className='text-4xl md:text-5xl font-black text-gray-900 tracking-tight leading-tight'>
                       Kenapa PAPin <span className="text-primary italic">Ada?</span>
                     </h2>
-                    <p className='text-gray-500 text-lg md:text-xl leading-relaxed font-medium  lg:w-3/4'>
-                      Hubungan tidak selalu menjauh karena hal besar. Kadang, jarak tumbuh dari kebiasaan kecil yang perlahan terlewat. PAPin hadir untuk menemani pasangan menjaga kedekatan lewat momen sederhana, setiap hari.
+                    <p className="text-gray-500 text-lg md:text-xl leading-relaxed font-medium lg:w-3/4">
+                      Banyak hubungan tidak rusak karena satu kesalahan besar, tapi karena perhatian kecil yang berhenti dilakukan. PAPin membantu pasangan kembali saling hadir, lewat momen sederhana yang dijaga setiap hari.
                     </p>
                 </div>
             </div>

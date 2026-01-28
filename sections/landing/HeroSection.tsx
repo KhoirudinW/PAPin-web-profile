@@ -30,7 +30,7 @@ function HeroSection() {
           </div>
 
           <p className="text-gray-500 text-lg md:text-xl leading-relaxed animate-fade-up delay-2 max-w-3/4">
-            Bukan tentang seberapa sering dilihat orang lain, tapi tentang bagaimana kalian saling hadir. PAPin menemani momen kecil yang terus dijaga, hari demi hari.
+            Bukan soal dilihat banyak orang, tapi tentang merasa ditemani. PAPin menjaga kehadiran kecil yang sering terlupa, agar hubungan tetap terasa dekat, setiap hari.
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center md:justify-start animate-fade-up delay-3">

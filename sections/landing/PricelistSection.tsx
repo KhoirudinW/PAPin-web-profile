@@ -31,8 +31,12 @@ function PricelistSection() {
                 </div>
                 <div className="w-[95%] md:w-3/4 max-w-168.75 bg-cream border-primary rounded-md border flex flex-col gap-3 py-2 px-3 justify-center items-center text-center">
                     <img src="/pricelist/exclamation-mark.png" alt="exclamation"  className='size-5'/>
-                    <p className='font-xs'>Kamu tidak harus upgrade sekarang.</p>
-                    <p className='font-xs'>Tapi ketika berbagi momen mulai terasa penting, Simple sering kali menjadi langkah yang paling pas.</p>
+                    <p className="font-xs">
+                        Kamu tidak perlu berubah besar hari ini.
+                    </p>
+                    <p className="font-xs">
+                        Tapi saat hubungan ingin dijaga lebih dalam, langkah kecil yang konsisten sering kali membuat perbedaan terbesar.
+                    </p>
                 </div>
             </div>
         </div>
