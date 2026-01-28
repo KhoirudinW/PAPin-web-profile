@@ -2,28 +2,50 @@ import CardFeature from '@/components/CardFeature';
 import { FEATURES } from '@/data/features';
 import Link from 'next/link';
 
-
 function FeatureSection() {
   return (
-    <section id='feature' className='h-fit p-5 w-full py-20 bg-linear-to-b from-secondary via-20% via-cream to-white overflow-hidden'>
-        <div className=" flex flex-col gap-12 justify-center items-center">
-            <div className="flex flex-col justify-center gap-4 items-center text-center scale-90 sm:scale-100">
-                <h1 className='md:header-primary-1 header-primary-2'>Fitur yang didapat</h1>
-                <p className='fonts-lg min-w-90 max-w-120'>
+    <section id='feature' className='relative min-h-screen py-24 overflow-hidden bg-[#FFFDFB] px-6'>
+        {/* Background Decorative Blobs */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div className="absolute top-[-5%] right-[-5%] w-[45%] h-[40%] bg-primary/10 rounded-full blur-[100px] animate-pulse" />
+          <div className="absolute bottom-[15%] left-[-10%] w-[35%] h-[35%] bg-light-blue/15 rounded-full blur-[90px]" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto flex flex-col gap-20 items-center">
+            <div className="text-center space-y-6 max-w-3/4 animate-fade-up">
+                <span className="text-primary font-bold tracking-[0.2em] text-[10px] md:text-xs uppercase bg-primary/5 px-4 py-1.5 rounded-full border border-primary/10 inline-block">
+                    Everything You Need
+                </span>
+                <h1 className='text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 tracking-tight leading-tight'>
+                  Fitur yang <span className="text-primary italic">Didapat</span>
+                </h1>
+                <p className='text-gray-500 text-lg md:text-xl leading-relaxed font-medium'>
                     Bukan fitur yang rumit, tapi cukup untuk menjaga satu momen setiap hari—dengan cara yang tenang dan bermakna.
                 </p>
             </div>
-            <div className="flex flex-col justify-center items-center gap-6">
-                <div className="flex flex-row flex-wrap justify-center items-center gap-5 w-fit">
-                    {FEATURES.map((fd, idx) => {
-                        return(
-                            <CardFeature key={idx} title={fd.title} desc={fd.desc} logo={fd.logo}/>
-                        )
-                    })}
+
+            <div className="flex flex-col items-center gap-16">
+                <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-10 animate-fade-up delay-1">
+                    {FEATURES.map((fd, idx) => (
+                        <div key={idx} className="h-full">
+                          <CardFeature title={fd.title} desc={fd.desc} logo={fd.logo}/>
+                        </div>
+                    ))}
                 </div>
-                <div className="flex flex-col md:flex-row gap-x-6 gap-y-2">
-                    <Link href={'https://papin-dashboard-nqgv.vercel.app/login'} className='btn btn-primary-solid'>Mulai hari ini</Link>
-                    <Link href='/feature' className='btn btn-primary-stroke'>Lihat selengkapnya</Link>
+
+                <div className="flex flex-wrap gap-4 justify-center animate-fade-up delay-2">
+                    <Link 
+                      href={'https://papin-dashboard-nqgv.vercel.app/login'} 
+                      className='px-8 py-4 bg-primary text-white rounded-2xl font-bold shadow-lg shadow-primary/20 hover:bg-primary-hovered hover:scale-105 active:scale-95 transition-all'
+                    >
+                      Mulai Hari Ini
+                    </Link>
+                    <Link 
+                      href='/feature' 
+                      className='px-8 py-4 bg-white/40 backdrop-blur-md text-primary border border-primary/20 rounded-2xl font-bold hover:bg-primary/5 hover:scale-105 active:scale-95 transition-all'
+                    >
+                      Lihat Selengkapnya
+                    </Link>
                 </div>
             </div>
         </div>
@@ -31,4 +53,4 @@ function FeatureSection() {
   )
 }
 
-export default FeatureSection
+export default FeatureSection;

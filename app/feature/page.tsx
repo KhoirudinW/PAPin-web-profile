@@ -1,37 +1,43 @@
 import FeatureCard from '@/components/FeatureCard';
 import { FEATURES } from '@/data/features';
+import Header from '@/components/Header';
 
 export const metadata = {
   title: 'Fitur PAPin',
-  description:
-    'Jelajahi berbagai fitur canggih yang kami sediakan untuk mempermudah kerja Anda.',
+  description: 'Jelajahi berbagai fitur canggih yang kami sediakan untuk mempermudah kerja Anda.',
 };
 
 export default function FeaturesPage() {
   return (
-    <main className="bg-linear-to-b from-cream to-white px-6 pb-20 pt-10">
-      {/* Header */}
-      <section className="max-w-7xl mx-auto text-center mb-16">
-        <h1 className="header-primary-2 mb-2">
-          Fitur yang Menjaga Kita
-        </h1>
-        <p className="fonts-xs text-gray">
-        Di PAPin, kami percaya bahwa cinta bukan tentang perayaan besar yang sesekali, melainkan tentang "tetap ada" setiap hari. Kami menciptakan ruang di mana kamu tidak perlu menjadi sempurna—cukup menjadi dirimu sendiri, bersama seseorang yang paling berarti.
-        </p>
-      </section>
+    <main className="relative min-h-screen bg-[#FFFDFB] px-6 py-20 overflow-hidden">
+      {/* Background Decorative Blobs */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute top-[-5%] left-[-5%] w-[45%] h-[40%] bg-primary/10 rounded-full blur-[100px] animate-pulse" />
+        <div className="absolute bottom-[15%] right-[-10%] w-[35%] h-[35%] bg-light-blue/15 rounded-full blur-[90px]" />
+      </div>
 
-      {/* Feature list */}
-      <section className="max-w-200 mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-        {FEATURES.map((feature) => (
-          <FeatureCard
-            key={feature.id}
-            title={feature.title}
-            subtitle={feature.subtitle}
-            description={feature.description}
-            points={feature.points}
-            image={feature.logo}
-          />
-        ))}
+      <section className="relative z-10 max-w-7xl mx-auto">
+        <Header 
+          title="Fitur yang Menjaga Kita"
+          subtitle="Kami menciptakan ruang di mana kamu tidak perlu menjadi sempurna—cukup menjadi dirimu sendiri, bersama seseorang yang paling berarti."
+          badge="Product Features"
+          maxWidth="max-w-4xl"
+        />
+
+        {/* Feature list */}
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 mt-20">
+          {FEATURES.map((feature) => (
+            <div key={feature.id} className="transition-all duration-500 hover:scale-[1.02]">
+              <FeatureCard
+                title={feature.title}
+                subtitle={feature.subtitle}
+                description={feature.description}
+                points={feature.points}
+                image={feature.logo}
+              />
+            </div>
+          ))}
+        </div>
       </section>
     </main>
   );

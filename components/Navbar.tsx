@@ -22,10 +22,10 @@ const NavItems = [
     title:'Pricelist',
     link: '/pricing'
   },
-  {
-    title:'News',
-    link:'/news'
-  },
+  // {
+  //   title:'News',
+  //   link:'/news'
+  // },
   {
     title:'Contact',
     link:'/contact'

@@ -1,8 +1,8 @@
-import Wa from 'pub/sosmed/wa-logo.png'
-import Tiktok from 'pub/sosmed/tiktok-logo.png'
-import Ig from 'pub/sosmed/ig-logo.png'
-import Email from 'pub/sosmed/email-logo.png'
-import Phone from 'pub/sosmed/phone-logo.png'
+import Wa from 'pub/sosmed/wa-logoP.png'
+import Tiktok from 'pub/sosmed/tiktok-logoP.png'
+import Ig from 'pub/sosmed/ig-logoP.png'
+import Email from 'pub/sosmed/email-logoP.png'
+import Phone from 'pub/sosmed/phone-logoP.png'
 import { StaticImageData } from "next/image"; 
 
 type SosmedProps = {

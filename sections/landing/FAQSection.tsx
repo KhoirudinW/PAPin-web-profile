@@ -30,13 +30,24 @@ const FAQ_DATA = [
   
 function FAQSection() {
   return (
-    <section className="bg-white pb-20">
-      <div className="max-w-155 mx-auto px-4">
-        <h2 className="text-3xl font-semibold text-center mb-12">
-          Pertanyaan yang sering ditanyakan
-        </h2>
+    <section className="relative bg-[#FFFDFB] py-32 overflow-hidden px-6">
+      {/* Background Decorative Blobs */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute top-[40%] left-[-10%] w-[40%] h-[40%] bg-secondary/10 rounded-full blur-[100px]" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-primary/10 rounded-full blur-[120px]" />
+      </div>
 
-        <div className="flex flex-col gap-4">
+      <div className="relative z-10 w-full mx-auto space-y-20">
+        <div className="text-center space-y-6 animate-fade-up">
+            <span className="text-primary font-bold tracking-[0.2em] text-[10px] md:text-xs uppercase bg-primary/5 px-4 py-1.5 rounded-full border border-primary/10 inline-block">
+                Common Questions
+            </span>
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight leading-tight">
+              Pertanyaan yang <span className="text-primary italic">Sering Ditanyakan</span>
+            </h2>
+        </div>
+
+        <div className="flex flex-col gap-6 animate-fade-up delay-1 lg:w-1/2 mx-auto">
           {FAQ_DATA.map((item, index) => (
             <FAQitem key={item.id} index={index} question={item.question} answer={item.answer}/>
           ))}

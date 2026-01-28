@@ -1,40 +1,38 @@
 import Link from "next/link";
 import { steps, WorkflowStep } from "@/data/workflow";
 
-
 type RenderWFProps = {
   data: WorkflowStep[];
 };
 
-
 const RenderWorkflow = ({ data }: RenderWFProps) => {
     return (
-      <div className="flex flex-col justify-center items-center mt-2">
+      <div className="flex flex-col justify-center items-center mt-2 space-y-2">
         {data.map((wf, index) => (
-          <div key={index} className="flex flex-row gap-1 items-start w-full">
+          <div key={index} className="flex flex-row gap-4 items-start w-full group">
             
             {/* ICON + CONNECTOR */}
-            <div className="flex flex-col items-center w-1/5">
+            <div className="flex flex-col items-center w-12 shrink-0">
                 <div className="relative">
                     <img
                         src="/about/bulet.png"
                         alt="bulet"
-                        className="size-11"
+                        className="size-10 opacity-80 group-hover:opacity-100 transition-opacity"
                     />
-                    <p className='absolute top-1/2 left-1/2 -translate-1/2 text-sm md:text-lg font-medium'>{wf.id}.</p>
+                    <p className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-sm font-bold text-gray-800'>{wf.id}.</p>
                 </div>
   
               {index !== data.length - 1 && (
-                <div className="h-10 w-1 border-2 border-dashed border-primary"></div>
+                <div className="h-12 w-0.5 bg-dashed-primary opacity-30"></div>
               )}
             </div>
   
             {/* TEXT */}
-            <div className="flex flex-col py-1 w-4/5 text-start">
-              <p className="md:text-lg text-md font-medium">
+            <div className="flex flex-col py-1 flex-1 text-start">
+              <p className="text-gray-800 font-bold group-hover:text-primary transition-colors">
                 {wf.title}
               </p>
-              <p className="md:text-md text-sm  text-gray-600 ">
+              <p className="text-sm text-gray-500 leading-relaxed font-medium">
                 {wf.description}
               </p>
             </div>
@@ -48,30 +46,66 @@ const RenderWorkflow = ({ data }: RenderWFProps) => {
 
 function AboutSection() {
   return (
-    <section id='about' className='lg:h-screen overflow-hidden bg-linear-to-b from-soft-cream via-20% via-cream to-80% to-secondary '>
-        <div className="flex flex-col justify-center items-center gap-12 p-10">
-            <div className="flex flex-col md:flex-row justify-center items-center gap-3 md:gap-36 w-full md:w-3/4">
-                <div className="min-w-47.25  flex justify-start items-start scale-75 md:scale-100 animate-soft-float">
-                    <img src="/about/about.png" alt="about-img" width={200} height={320}/>
+    <section id='about' className='relative min-h-screen py-24 overflow-hidden bg-[#FFFDFB] px-6'>
+        {/* Background Decorative Blobs */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div className="absolute top-[20%] right-[-10%] w-[50%] h-[50%] bg-primary/5 rounded-full blur-[120px]" />
+          <div className="absolute bottom-[10%] left-[-5%] w-[40%] h-[40%] bg-secondary/10 rounded-full blur-[100px]" />
+        </div>
+
+        <div className="relative z-10 max-w-8xl  mx-auto flex flex-col items-center gap-24">
+            {/* Intro Section */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center w-full">
+                <div className="relative group animate-fade-up">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-primary/10 rounded-full blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                    <img 
+                      src="/about/about.png" 
+                      alt="about-img" 
+                      className="relative z-10 w-full max-w-1/2 lg:max-w-1/4 mx-auto drop-shadow-2xl animate-soft-float"
+                    />
                 </div>
-                <div className="flex flex-col md:items-end md:w-1/2 scale-90 sm:scale-100">
-                    <h2 className='header-primary-2 text-center md:text-end'>Kenapa PAPin Ada?</h2>
-                    <p className='fonts-sm md:text-lg text-center max-w-125.5 sm:text-end lg:text-end'>Hubungan tidak selalu menjauh karena hal besar. Kadang, jarak tumbuh dari kebiasaan kecil yang perlahan terlewat. PAPin hadir untuk menemani pasangan menjaga kedekatan lewat momen sederhana, setiap hari.</p>
+                
+                <div className="space-y-6 md:text-start text-center animate-fade-up delay-1">
+                    <h2 className='text-4xl md:text-5xl font-black text-gray-900 tracking-tight leading-tight'>
+                      Kenapa PAPin <span className="text-primary italic">Ada?</span>
+                    </h2>
+                    <p className='text-gray-500 text-lg md:text-xl leading-relaxed font-medium  lg:w-3/4'>
+                      Hubungan tidak selalu menjauh karena hal besar. Kadang, jarak tumbuh dari kebiasaan kecil yang perlahan terlewat. PAPin hadir untuk menemani pasangan menjaga kedekatan lewat momen sederhana, setiap hari.
+                    </p>
                 </div>
             </div>
-            <div className="flex flex-col items-center min-w-94.2 max-w-263.75 gap-6 md:scale-75 scale-100 lg:scale-90">
-                <h1 className='header-white-1 text-center'>Alur Kerja</h1>
-                <div className="text-center flex flex-col lg:flex-row justify-center items-center lg:items-start gap-6">
-                    <p className='fonts-lg w-78.75 items-start text-gray lg:text-end hovered-anim '>Tidak rumit. Tidak menuntut. PAPin bekerja dengan cara yang tenang dan konsisten.</p>
-                    <div className="flex flex-col lg:flex-row items-center lg:items-end gap-6">
-                        <div className="border-4 rounded-xl min-h-95 min-w-95 max-w-150 max-h-150 border-light-blue bg-white p-2.75">
-                            <RenderWorkflow data={steps}/>
-                        </div>
-                        <p className='fonts-lg w-78.75 text-gray lg:text-start hovered-anim '>PAPin tidak meminta kesempurnaan. Hanya kehadiran kecil yang dilakukan bersama, setiap hari.</p>
-                    </div>
+
+            {/* Workflow Section (Preserved logic, updated UI) */}
+            <div className="w-full flex flex-col items-center gap-12">
+                <div className="text-center space-y-4 max-w-7xl animate-fade-up transition-all">
+                    <span className="text-primary font-bold tracking-[0.2em] text-[10px] md:text-xs uppercase bg-primary/5 px-4 py-1.5 rounded-full border border-primary/10 inline-block">
+                        Bagaimana Kami Bekerja
+                    </span>
+                    <h1 className='text-4xl md:text-6xl font-black text-gray-900 tracking-tight'>
+                        Alur <span className="text-primary italic">Kerja</span>
+                    </h1>
                 </div>
-                <div className="">
-                  <Link href='/workflow' className="btn btn-third-solid">Lihat cara kerjanya</Link>
+
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 w-full items-stretch animate-fade-up delay-1">
+                    <div className="text-center lg:text-end space-y-4 order-1 lg:order-1 self-start lg:mt-20">
+                        <p className='text-gray-500 lg:max-w-[50%] lg:ml-auto text-lg font-medium leading-relaxed italic'>
+                          "Tidak rumit. Tidak menuntut. PAPin bekerja dengan cara yang tenang dan konsisten."
+                        </p>
+                    </div>
+
+                    <div className="lg:order-2 order-1 flex justify-center">
+                      <div className="bg-white/40 backdrop-blur-xl border-2 border-primary/60 rounded-[40px] p-10 shadow-2xl relative overflow-hidden w-full">
+                          <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl" />
+                          <div className="absolute bottom-0 left-0 w-32 h-32 bg-secondary/10 rounded-full blur-3xl" />
+                          <RenderWorkflow data={steps}/>
+                      </div>
+                    </div>
+
+                    <div className="text-center lg:text-start space-y-4 order-3 lg:order-3 self-start lg:mt-20">
+                        <p className='text-gray-500 lg:max-w-[50%] text-lg font-medium leading-relaxed italic'>
+                          "Cukup satu notifikasi, satu foto, dan satu momen yang tersimpan selamanya."
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -79,4 +113,4 @@ function AboutSection() {
   )
 }
 
-export default AboutSection
+export default AboutSection;

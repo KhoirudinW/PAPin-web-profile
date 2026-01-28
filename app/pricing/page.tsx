@@ -2,209 +2,168 @@ import React from 'react';
 import { Check, X } from 'lucide-react';
 import { detailedPricingData } from '@/data/price';
 import { rupiah } from '@/helpers/ConvertRupiah';
+import Header from '@/components/Header';
 
 const PricingTable: React.FC = () => {
   return (
-    <div className="min-h-screen bg-linear-to-b from-orange-50 to-white py-12 px-4">
-      <div className="max-w-7xl mx-auto">
-        <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
-          <div className="p-4 md:p-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-purple-900 mb-6 md:mb-8 text-center">
-              Pricing Table
-            </h2>
+    <div className="relative min-h-screen bg-[#FFFDFB] py-16 px-4 overflow-hidden">
+      {/* Background Decorative Blobs */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary/10 rounded-full blur-[120px] animate-pulse" />
+        <div className="absolute bottom-[10%] right-[-5%] w-[40%] h-[40%] bg-secondary/20 rounded-full blur-[100px]" />
+        <div className="absolute top-[30%] left-[70%] w-[25%] h-[25%] bg-light-blue/15 rounded-full blur-[80px]" />
+      </div>
 
-            {/* Desktop Table View */}
-            <div className="hidden md:block overflow-x-auto">
-              <table className="w-full border-collapse">
-                <thead>
-                  <tr>
-                    <th className="border-2 border-gray-300 p-6 bg-orange-50 text-left">
-                      <span className="text-2xl font-bold text-purple-900">
-                        Pricing Table
-                      </span>
-                    </th>
-                    {detailedPricingData.map((tier, index) => (
-                      <th
-                        key={index}
-                        className={`border-2 border-gray-300 p-6 ${
-                          tier.name === 'Gratis'
-                            ? 'bg-pink-400'
-                            : 'bg-fuchsia-600'
-                        } ${tier.highlighted ? 'shadow-lg' : ''}`}
-                      >
-                        <div className="text-white text-2xl font-bold">
-                          {tier.name}
-                        </div>
-                      </th>
-                    ))}
-                  </tr>
-                  <tr>
-                    <th className="border-2 border-gray-300 p-4 bg-orange-50"></th>
-                    {detailedPricingData.map((tier, index) => (
-                      <th
-                        key={index}
-                        className="border-2 border-gray-300 p-6 bg-orange-50"
-                      >
-                        {tier.originalPrice && (
-                          <div className="flex items-center justify-center mb-2">
-                            <span className="text-base text-gray-500 line-through decoration-red-600 decoration-1">
-                              Rp. {rupiah(tier.originalPrice)}
-                            </span>
+      <div className="relative z-10 max-w-7xl mx-auto">
+        <Header 
+          title="Investasi untuk Kenangan Abadi"
+          subtitle="Pilih paket yang paling pas untuk merayakan perjalanan cinta kalian. Tanpa biaya tersembunyi."
+          badge="Transparent Pricing"
+          maxWidth="max-w-6xl"
+        />
+
+        {/* Desktop Table View */}
+        <div className="hidden lg:block">
+          <div className="bg-white/40 backdrop-blur-xl border border-white/60 rounded-[40px] shadow-2xl overflow-hidden p-8">
+            <table className="w-full">
+              <thead>
+                <tr>
+                  <th className="p-6 text-left w-1/4">
+                    <h3 className="text-2xl font-bold text-gray-800">Perbandingan Fitur</h3>
+                  </th>
+                  {detailedPricingData.map((tier, index) => (
+                    <th key={index} className="p-6 text-center">
+                      <div className={`relative p-8 rounded-3xl transition-all duration-500 ${
+                        tier.name === 'Simpel' 
+                          ? 'bg-primary text-white scale-105 shadow-[0_15px_40px_rgba(255,175,204,0.4)]' 
+                          : 'bg-white/40 text-gray-800'
+                      }`}>
+                        {tier.name === 'Simpel' && (
+                          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-white text-primary text-[10px] font-black px-4 py-1 rounded-full shadow-md uppercase tracking-widest border border-primary/10 whitespace-nowrap">
+                            Paling Populer
                           </div>
                         )}
-                        <div className="flex items-start justify-center">
-                          <span className="text-xl text-gray-700 font-semibold mt-1">
-                            Rp.
-                          </span>
-                          <span className="text-3xl font-bold text-purple-900">
-                            {rupiah(tier.price)}
-                          </span>
-                          <span className="text-base text-gray-700 mt-2 ml-1">
-                            /mo
-                          </span>
+                        <h4 className="text-xl font-bold mb-2">{tier.name}</h4>
+                        <div className="flex items-baseline justify-center gap-1">
+                          <span className="text-sm font-medium opacity-80">Rp</span>
+                          <span className="text-3xl font-black">{rupiah(tier.price)}</span>
+                          <span className="text-xs font-medium opacity-60">/bln</span>
                         </div>
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {detailedPricingData[0].features.map((_, featureIndex) => (
-                    <tr key={featureIndex} className="hover:bg-orange-50">
-                      <td className="border-2 border-gray-300 p-4 text-left">
-                        <span className="text-purple-900 font-medium">
-                          {detailedPricingData[0].features[featureIndex].name}
-                        </span>
-                      </td>
-                      {detailedPricingData.map((tier, tierIndex) => (
-                        <td
-                          key={tierIndex}
-                          className="border-2 border-gray-300 p-4 text-center"
-                        >
-                          {tier.features[featureIndex].included ? (
-                            <div className="flex justify-center">
-                              <Check className="w-8 h-8 text-green-500" />
-                            </div>
-                          ) : tier.features[featureIndex].massage ? (
-                            <div className="text-sm text-purple-900 font-medium">
-                              {tier.features[featureIndex].massage}
-                            </div>
-                          ) : (
-                            <div className="flex justify-center">
-                              <X className="w-8 h-8 text-red-500" />
-                            </div>
-                          )}
-                        </td>
-                      ))}
-                    </tr>
+                        {tier.originalPrice && (
+                          <p className="text-xs line-through opacity-50 mt-1">Rp {rupiah(tier.originalPrice)}</p>
+                        )}
+                      </div>
+                    </th>
                   ))}
-                  <tr>
-                    <td className="border-2 border-gray-300 p-4 bg-orange-50"></td>
-                    {detailedPricingData.map((tier, index) => (
-                      <td
-                        key={index}
-                        className="border-2 border-gray-300 p-6 bg-orange-50"
-                      >
-                        <button
-                          className={`w-full py-3 px-6 rounded-full text-white font-bold text-base transition-all hover:shadow-lg ${
-                            tier.name === 'Gratis'
-                              ? 'bg-pink-300 hover:bg-pink-400'
-                              : 'bg-fuchsia-500 hover:bg-fuchsia-600'
-                          }`}
-                        >
-                          {tier.buttonText}
-                        </button>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {detailedPricingData[0].features.map((_, featureIndex) => (
+                  <tr key={featureIndex} className="group hover:bg-white/50 transition-colors">
+                    <td className="py-6 px-6">
+                      <span className="text-gray-700 font-semibold group-hover:text-primary transition-colors">
+                        {detailedPricingData[0].features[featureIndex].name}
+                      </span>
+                    </td>
+                    {detailedPricingData.map((tier, tierIndex) => (
+                      <td key={tierIndex} className="py-6 px-4 text-center">
+                        {tier.features[featureIndex].included ? (
+                          <div className={`inline-flex items-center justify-center size-8 rounded-full bg-primary/10 text-primary`}>
+                            <Check className="size-5 stroke-[3]" />
+                          </div>
+                        ) : tier.features[featureIndex].massage ? (
+                          <span className={`text-sm font-bold ${
+                            tier.name === 'Simpel' ? 'text-white' : 'text-primary'
+                          }`}>
+                            {tier.features[featureIndex].massage}
+                          </span>
+                        ) : (
+                          <div className="inline-flex items-center justify-center size-8 rounded-full bg-gray-100/50 text-gray-300">
+                            <X className="size-5 stroke-[3]" />
+                          </div>
+                        )}
                       </td>
                     ))}
                   </tr>
-                </tbody>
-              </table>
-            </div>
-
-            {/* Mobile Card View */}
-            <div className="md:hidden space-y-6">
-              {detailedPricingData.map((tier, tierIndex) => (
-                <div
-                  key={tierIndex}
-                  className={`border-2 rounded-xl overflow-hidden ${
-                    tier.highlighted
-                      ? 'border-fuchsia-600 shadow-lg'
-                      : 'border-gray-300'
-                  }`}
-                >
-                  {/* Header */}
-                  <div
-                    className={`py-4 px-6 text-center ${
-                      tier.name === 'Gratis' ? 'bg-pink-400' : 'bg-fuchsia-600'
-                    }`}
-                  >
-                    <h3 className="text-white text-xl font-bold">
-                      {tier.name}
-                    </h3>
-                  </div>
-
-                  {/* Price */}
-                  <div className="py-6 px-6 text-center bg-orange-50">
-                    {tier.originalPrice && (
-                      <div className="flex items-center justify-center mb-2">
-                        <span className="text-sm text-gray-500 line-through">
-                          Rp. {rupiah(tier.originalPrice)}
-                        </span>
-                      </div>
-                    )}
-                    <div className="flex items-start justify-center">
-                      <span className="text-lg text-gray-700 font-semibold mt-1">
-                        Rp.
-                      </span>
-                      <span className="text-4xl font-bold text-purple-900">
-                        {rupiah(tier.price)}
-                      </span>
-                      <span className="text-sm text-gray-700 mt-2 ml-1">
-                        /mo
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Features */}
-                  <div className="px-4 py-4 space-y-3">
-                    {tier.features.map((feature, featureIndex) => (
-                      <div
-                        key={featureIndex}
-                        className="flex items-center justify-between py-2 border-b border-gray-200 last:border-b-0"
+                ))}
+                <tr>
+                  <td className="p-6"></td>
+                  {detailedPricingData.map((tier, index) => (
+                    <td key={index} className="p-6">
+                      <button
+                        className={`w-full py-4 px-8 rounded-2xl font-bold transition-all duration-300 active:scale-95 ${
+                          tier.name === 'Simpel'
+                            ? 'bg-white text-primary hover:shadow-xl border border-primary'
+                            : tier.name === 'Gratis'
+                              ? 'bg-white/60 text-gray-700 hover:bg-primary/10 hover:text-primary border border-gray-200'
+                              : 'bg-primary text-white hover:bg-primary-hovered shadow-lg shadow-primary/20'
+                        }`}
                       >
-                        <span className="text-sm text-purple-900 font-medium">
-                          {feature.name}
-                        </span>
-                        <div className="flex items-center">
-                          {feature.included ? (
-                            <Check className="w-6 h-6 text-green-500" />
-                          ) : feature.massage ? (
-                            <span className="text-xs text-purple-900 font-medium">
-                              {feature.massage}
-                            </span>
-                          ) : (
-                            <X className="w-6 h-6 text-red-500" />
-                          )}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Button */}
-                  <div className="p-4 bg-orange-50">
-                    <button
-                      className={`w-full py-3 px-6 rounded-full text-white font-bold text-base transition-all hover:shadow-lg ${
-                        tier.name === 'Gratis'
-                          ? 'bg-pink-300 hover:bg-pink-400'
-                          : 'bg-fuchsia-500 hover:bg-fuchsia-600'
-                      }`}
-                    >
-                      {tier.buttonText}
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
+                        {tier.buttonText}
+                      </button>
+                    </td>
+                  ))}
+                </tr>
+              </tbody>
+            </table>
           </div>
+        </div>
+
+        {/* Mobile & Tablet Card View */}
+        <div className="lg:hidden space-y-8">
+          {detailedPricingData.map((tier, index) => (
+            <div
+              key={index}
+              className={`relative overflow-hidden rounded-[40px] p-8 transition-all duration-500 ${
+                tier.name === 'Simpel'
+                  ? 'bg-primary text-white shadow-[0_20px_50px_rgba(255,175,204,0.4)] scale-[1.02]'
+                  : 'bg-white/40 backdrop-blur-xl border border-white/60 text-gray-800'
+              }`}
+            >
+              {tier.name === 'Simpel' && (
+                <div className="absolute top-6 right-8 bg-white text-primary text-[10px] font-black px-4 py-1.5 rounded-full shadow-md uppercase tracking-widest border border-primary/10">
+                  Best Value
+                </div>
+              )}
+              
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold mb-4">{tier.name}</h3>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-lg font-medium opacity-80">Rp</span>
+                  <span className="text-5xl font-black">{rupiah(tier.price)}</span>
+                  <span className="text-sm font-medium opacity-60">/bulan</span>
+                </div>
+                {tier.originalPrice && (
+                  <p className="text-sm line-through opacity-50 mt-1">Mulai dari Rp {rupiah(tier.originalPrice)}</p>
+                )}
+              </div>
+
+              <div className="space-y-4 mb-8">
+                {tier.features.map((feature, fIndex) => (
+                  <div key={fIndex} className="flex items-center justify-between py-2 border-b border-white/10 last:border-0">
+                    <span className="text-sm font-semibold opacity-90">{feature.name}</span>
+                    {feature.included ? (
+                      <Check className={`size-6 ${tier.name === 'Simpel' ? 'text-white' : 'text-primary'}`} />
+                    ) : feature.massage ? (
+                      <span className="text-sm font-black">{feature.massage}</span>
+                    ) : (
+                      <X className="size-6 opacity-30" />
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              <button
+                className={`w-full py-5 px-8 rounded-3xl font-bold text-lg transition-all active:scale-95 ${
+                  tier.name === 'Simpel'
+                    ? 'bg-white text-primary shadow-[0_10px_30px_rgba(255,255,255,0.3)]'
+                    : 'bg-primary text-white shadow-xl shadow-primary/20'
+                }`}
+              >
+                {tier.buttonText}
+              </button>
+            </div>
+          ))}
         </div>
       </div>
     </div>

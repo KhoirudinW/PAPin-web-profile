@@ -1,61 +1,69 @@
 import { CustomerServices } from "@/data/socialmedia";
 import Image from "next/image";
+import Header from '@/components/Header';
 
-    export const metadata = {
-        title: 'Hubungi Kami',
-        description:
-        'Punya pertanyaan? Hubungi tim support kami melalui email atau form kontak.',
-    };
-  
-  export default function ContactPage() {
+export const metadata = {
+    title: 'Hubungi Kami',
+    description: 'Punya pertanyaan? Hubungi tim support kami melalui email atau form kontak.',
+};
+
+export default function ContactPage() {
     return (
-      <main className="bg-linear-to-b from-cream to-white px-6 pt-10 pb-20">
-        <section className="max-w-7xl mx-auto flex flex-col gap-4">
-  
-          {/* Header */}
-          <div className="text-center">
-            <h1 className="header-primary-2 mb-4">
-              Hubungi Kami
-            </h1>
-            <p className="fonts-sm text-gray leading-relaxed">
-              Jika kamu punya pertanyaan, masukan, atau sekadar ingin berbagi cerita,
-              kami akan dengan senang hati membacanya.
-            </p>
-          </div>
-  
-          {/* Contact Info */}
-          <div className="bg-white max-w-95 mx-auto rounded-xl shadow-md shadow-primary p-6 flex flex-col gap-6">
-            {CustomerServices.map((sosmed, index) => {return(
-                <div key={index}>
-                    <div className="flex flex-row items-center gap-3 py-2">
-                        <Image src={sosmed.logo} alt={`${sosmed.name.toLowerCase()}-icon`} width={50} height={50} className="bg-primary rounded-full p-1 size-10"/>
-                        <h3 className="header-primary-5 mb-1">{sosmed.name}</h3>
-                    </div>
-                    <p className="fonts-sm text-gray">
-                        {sosmed.content}
-                    </p>
-                </div>
-            )})}
-  
-            <div>
-              <h3 className="header-primary-5 mb-1">Waktu Respon</h3>
-              <p className="fonts-sm text-gray">
-                Kami biasanya membalas dalam 1–2 hari kerja.
-              </p>
+        <main className="relative min-h-screen bg-[#FFFDFB] px-6 py-20 overflow-hidden">
+            {/* Background Decorative Blobs */}
+            <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+                <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-primary/10 rounded-full blur-[120px] animate-pulse" />
+                <div className="absolute bottom-[-5%] left-[-5%] w-[40%] h-[40%] bg-secondary/10 rounded-full blur-[100px]" />
             </div>
-          </div>
-  
-          {/* Gentle Note */}
-          <div className="text-center">
-            <p className="fonts-xs text-gray">
-              PAPin bukan layanan darurat. Jika kamu membutuhkan bantuan profesional
-              atau dukungan emosional mendesak, kami mendorongmu untuk mencari
-              bantuan yang tepat.
-            </p>
-          </div>
-  
-        </section>
-      </main>
+
+            <section className="relative z-10 max-w-7xl mx-auto flex flex-col gap-16 items-center">
+                <Header 
+                    title="Hubungi Kami"
+                    subtitle="Jika kamu punya pertanyaan, masukan, atau sekadar ingin berbagi cerita, kami akan dengan senang hati membacanya."
+                    badge="Contact Us"
+                />
+
+                {/* Contact Info Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
+                    <div className="bg-white/40 backdrop-blur-xl border border-white/60 rounded-[40px] p-10 shadow-2xl space-y-8 flex flex-col justify-center">
+                        {CustomerServices.map((sosmed, index) => (
+                            <div key={index} className="flex items-center gap-6 group">
+                                <div className="bg-primary/10 p-4 rounded-3xl group-hover:bg-primary/20 transition-colors">
+                                    <Image 
+                                        src={sosmed.logo} 
+                                        alt={`${sosmed.name.toLowerCase()}-icon`} 
+                                        width={32} 
+                                        height={32} 
+                                        className="size-8"
+                                    />
+                                </div>
+                                <div>
+                                    <h3 className="text-lg font-bold text-gray-800 mb-0.5">{sosmed.name}</h3>
+                                    <p className="text-sm text-gray-500 font-medium">{sosmed.content}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="bg-white/60 backdrop-blur-2xl border border-white/80 rounded-[40px] p-10 shadow-2xl flex flex-col justify-center relative overflow-hidden">
+                        <div className="absolute -top-10 -right-10 size-32 bg-secondary/20 rounded-full blur-3xl" />
+                        
+                        <div className="relative z-10 text-center md:text-left">
+                            <h3 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">Waktu <span className="text-primary italic">Respon</span></h3>
+                            <p className="text-gray-500 leading-relaxed font-medium mb-8">
+                                Kami percaya bahwa setiap pesan adalah awal dari cerita. Kami biasanya akan membalas dalam <span className="text-primary font-bold">1–2 hari kerja</span>.
+                            </p>
+                            
+                            <div className="p-6 bg-primary/5 rounded-3xl border border-primary/10">
+                                <p className="text-xs text-primary leading-relaxed font-semibold italic">
+                                    "PAPin bukan layanan darurat. Jika kamu membutuhkan bantuan profesional mendesak, kami mendorongmu untuk mencari bantuan yang tepat."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
     );
-  }
+}
   
