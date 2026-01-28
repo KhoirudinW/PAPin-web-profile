@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function ContactPage() {
     return (
-        <main className="relative min-h-screen bg-[#FFFDFB] px-6 py-20 overflow-hidden">
+        <main className="relative min-h-screen bg-[#FFFDFB] px-6 py-20 overflow-hidden select-none">
             {/* Background Decorative Blobs */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
                 <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-primary/10 rounded-full blur-[120px] animate-pulse" />

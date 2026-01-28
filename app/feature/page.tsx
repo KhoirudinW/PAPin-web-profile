@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function FeaturesPage() {
   return (
-    <main className="relative min-h-screen bg-[#FFFDFB] px-6 py-20 overflow-hidden">
+    <main className="relative min-h-screen bg-[#FFFDFB] px-6 py-20 overflow-hidden select-none">
       {/* Background Decorative Blobs */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[-5%] left-[-5%] w-[45%] h-[40%] bg-primary/10 rounded-full blur-[100px] animate-pulse" />

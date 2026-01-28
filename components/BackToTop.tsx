@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react';
+import { ArrowUp } from 'lucide-react';
 
 function BackToTop() {
   const [visible, setVisible] = useState(false);
@@ -25,22 +26,26 @@ function BackToTop() {
       onClick={scrollToTop}
       aria-label="Kembali ke atas"
       className={`
-        fixed bottom-6 right-6 z-40
-        flex items-center gap-2
-        px-4 py-3
-        rounded-full
-        bg-light-blue/80 backdrop-blur-sm
-        text-white text-sm
-        shadow-lg shadow-primary/30
-        transition-all duration-500 ease-out
-        hover:bg-[#72a1cc] hover:shadow-xl
+        fixed bottom-10 right-10 z-40
+        size-12 md:size-14
+        flex items-center justify-center
+        rounded-2xl
+        bg-white/60 backdrop-blur-2xl
+        border border-primary/20
+        text-primary
+        shadow-2xl shadow-primary/10
+        transition-all duration-500 ease-in-out
+        hover:bg-primary hover:text-white hover:-translate-y-2 hover:shadow-primary/30
+        active:scale-95
         ${visible
-          ? 'opacity-100 translate-y-0 pointer-events-auto'
-          : 'opacity-0 translate-y-4 pointer-events-none'}
+          ? 'opacity-100 translate-y-0'
+          : 'opacity-0 translate-y-12 pointer-events-none'}
       `}
     >
-      <span className="text-xs hidden md:block">kembali ke awal</span>
-      <span className="text-base leading-none">↑</span>
+      <div className="relative group">
+        <div className="absolute inset-0 bg-white rounded-full blur-xl scale-0 group-hover:scale-150 transition-transform opacity-0 group-hover:opacity-20 pointer-events-none" />
+        <ArrowUp className="size-6 md:size-7 relative z-10 transition-transform" />
+      </div>
     </button>
   );
 }

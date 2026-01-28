@@ -1,3 +1,5 @@
+'use client'
+import { useState } from "react";
 import FAQitem from "@/components/FAQitem";
 
 const FAQ_DATA = [
@@ -29,6 +31,12 @@ const FAQ_DATA = [
   ];
   
 function FAQSection() {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  const handleToggle = (index: number) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
+
   return (
     <section className="relative bg-[#FFFDFB] py-32 overflow-hidden px-6">
       {/* Background Decorative Blobs */}
@@ -49,7 +57,13 @@ function FAQSection() {
 
         <div className="flex flex-col gap-6 animate-fade-up delay-1 lg:w-1/2 mx-auto">
           {FAQ_DATA.map((item, index) => (
-            <FAQitem key={item.id} index={index} question={item.question} answer={item.answer}/>
+            <FAQitem 
+              key={item.id} 
+              question={item.question} 
+              answer={item.answer}
+              isOpen={activeIndex === index}
+              onToggle={() => handleToggle(index)}
+            />
           ))}
         </div>
       </div>

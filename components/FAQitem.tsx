@@ -1,22 +1,14 @@
 'use client'
-import { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 type FAQtype = {
-  index: number | null ,
   question: string,
-  answer: string
+  answer: string,
+  isOpen: boolean,
+  onToggle: () => void
 }
 
-function FAQitem({index, question, answer} : FAQtype) {
-    const [activeIndex, setActiveIndex] = useState<number | null>(null);
-
-    const toggle = (index: number | null ) => {
-      setActiveIndex(activeIndex === index ? null : index);
-    };
-  
-    const isOpen = activeIndex === index;
-
+function FAQitem({ question, answer, isOpen, onToggle }: FAQtype) {
     return (
         <div className={`transition-all duration-500 rounded-[32px] overflow-hidden border-2 ${
           isOpen 
@@ -24,7 +16,7 @@ function FAQitem({index, question, answer} : FAQtype) {
             : 'bg-white/30 backdrop-blur-md border-primary/20 hover:bg-white/50 hover:border-primary/60'
         }`}>
             <button
-              onClick={() => toggle(index)}
+              onClick={onToggle}
               className="w-full flex justify-between items-center px-8 py-6 text-left group"
             >
               <span className={`font-bold text-lg transition-colors ${isOpen ? 'text-primary' : 'text-gray-800'}`}>

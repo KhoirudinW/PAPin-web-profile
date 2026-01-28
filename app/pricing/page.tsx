@@ -6,7 +6,7 @@ import Header from '@/components/Header';
 
 const PricingTable: React.FC = () => {
   return (
-    <div className="relative min-h-screen bg-[#FFFDFB] py-16 px-4 overflow-hidden">
+    <div className="relative min-h-screen bg-[#FFFDFB] py-16 px-4 overflow-hidden select-none">
       {/* Background Decorative Blobs */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary/10 rounded-full blur-[120px] animate-pulse" />
