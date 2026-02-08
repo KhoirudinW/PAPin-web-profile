@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   },
 
   description:
-    "PAPin membantu pasangan tetap terhubung melalui rutinitas harian sederhana—berbagi foto, waktu, lokasi, dan pesan penuh perhatian. Ruang privat untuk dua orang, aman dan penuh makna.",
+    "PAPin membantu pasangan tetap terhubung melalui rutinitas harian sederhana—berbagi foto, waktu, dan pesan penuh perhatian. Ruang privat untuk dua orang, aman dan penuh makna.",
 
   keywords: [
     "papin",

@@ -3,6 +3,7 @@ import { Check, X } from 'lucide-react';
 import { detailedPricingData } from '@/data/price';
 import { rupiah } from '@/helpers/ConvertRupiah';
 import Header from '@/components/Header';
+import PricingButton from '@/components/PricingButton';
 
 const PricingTable: React.FC = () => {
   return (
@@ -71,11 +72,11 @@ const PricingTable: React.FC = () => {
                           <div className={`inline-flex items-center justify-center size-8 rounded-full bg-primary/10 text-primary`}>
                             <Check className="size-5 stroke-[3]" />
                           </div>
-                        ) : tier.features[featureIndex].massage ? (
+                        ) : tier.features[featureIndex].message ? (
                           <span className={`text-sm font-bold ${
-                            tier.name === 'Simpel' ? 'text-white' : 'text-primary'
+                            tier.name === 'Simpel' ? 'text-primary' : 'text-primary'
                           }`}>
-                            {tier.features[featureIndex].massage}
+                            {tier.features[featureIndex].message}
                           </span>
                         ) : (
                           <div className="inline-flex items-center justify-center size-8 rounded-full bg-gray-100/50 text-gray-300">
@@ -90,17 +91,10 @@ const PricingTable: React.FC = () => {
                   <td className="p-6"></td>
                   {detailedPricingData.map((tier, index) => (
                     <td key={index} className="p-6">
-                      <button
-                        className={`w-full py-4 px-8 rounded-2xl font-bold transition-all duration-300 active:scale-95 ${
-                          tier.name === 'Simpel'
-                            ? 'bg-white text-primary hover:shadow-xl border border-primary'
-                            : tier.name === 'Gratis'
-                              ? 'bg-white/60 text-gray-700 hover:bg-primary/10 hover:text-primary border border-gray-200'
-                              : 'bg-primary text-white hover:bg-primary-hovered shadow-lg shadow-primary/20'
-                        }`}
-                      >
-                        {tier.buttonText}
-                      </button>
+                      <PricingButton 
+                        tierName={tier.name} 
+                        buttonText={tier.buttonText} 
+                      />
                     </td>
                   ))}
                 </tr>
@@ -144,8 +138,8 @@ const PricingTable: React.FC = () => {
                     <span className="text-sm font-semibold opacity-90">{feature.name}</span>
                     {feature.included ? (
                       <Check className={`size-6 ${tier.name === 'Simpel' ? 'text-white' : 'text-primary'}`} />
-                    ) : feature.massage ? (
-                      <span className="text-sm font-black">{feature.massage}</span>
+                    ) : feature.message ? (
+                      <span className="text-sm font-black">{feature.message}</span>
                     ) : (
                       <X className="size-6 opacity-30" />
                     )}
@@ -153,15 +147,11 @@ const PricingTable: React.FC = () => {
                 ))}
               </div>
 
-              <button
-                className={`w-full py-5 px-8 rounded-3xl font-bold text-lg transition-all active:scale-95 ${
-                  tier.name === 'Simpel'
-                    ? 'bg-white text-primary shadow-[0_10px_30px_rgba(255,255,255,0.3)]'
-                    : 'bg-primary text-white shadow-xl shadow-primary/20'
-                }`}
-              >
-                {tier.buttonText}
-              </button>
+              <PricingButton 
+                tierName={tier.name} 
+                buttonText={tier.buttonText} 
+                variant="mobile" 
+              />
             </div>
           ))}
         </div>

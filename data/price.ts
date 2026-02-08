@@ -18,7 +18,7 @@ type CardPriceProps = {
 interface Feature {
   name: string;
   included: boolean;
-  massage?: string;
+  message?: string;
 }
 
 interface PricingTier {
@@ -40,7 +40,8 @@ export const PriceData: CardPriceProps[] = [
         desc: 'Untuk memulai kebiasaan kecil dan mencoba PAPin bersama.',
         benefit: [
             'Daily PAP (10x / hari)',
-            'Reaction Preset(1x / pasangan)'
+            'Mood Tracking (Tidak tersedia)',
+            'Reaction Preset (1x / permanent)'
         ],
         isPink: false,
         recomended: false,
@@ -54,7 +55,8 @@ export const PriceData: CardPriceProps[] = [
         desc: 'Pilihan paling nyaman untuk pasangan yang ingin berbagi tanpa batas, tanpa fitur yang berlebihan.',
         benefit: [
             'Unlimited PAP',
-            'Mood Harian',
+            'Mood Tracking',
+            'Reaction Preset (1x / permanent)'
         ],
         isPink: true,
         recomended: true,
@@ -69,8 +71,8 @@ export const PriceData: CardPriceProps[] = [
         benefit: [
             'Semua fitur Simple',
             'Unlimited Reaction Preset',
-            'Timeline perjalanan lengkap',
-            'Widget',
+            'Download tanpa border',
+            'Mood Analytics & Advanced Dashboard',
         ],
         isPink: false,
         recomended: false,
@@ -83,28 +85,29 @@ export const detailedPricingData: PricingTier[] = [
       name: 'Gratis',
       price: 0,
       features: [
-        { name: 'Pap tidak terbatas', included: false, massage:"10x / pasangan"},
-        { name: 'Fitur streak', included: true },
-        { name: 'Download tanpa border', included: false},
-        { name: 'Preset Custom', included: false, massage:"1x / pasangan" },
-        { name: 'Fitur mood harian', included: false },
-        { name: 'Fitur widget', included: false },
+        { name: 'Daily PAP (unlimited)', included: false, message: "10 per hari" },
+        { name: 'Mood Tracking', included: false },
+        { name: 'Reaction Preset', included: false, message: "1 preset" },
+        { name: 'Download Foto (With Border)', included: false },
+        { name: 'Analytics Dashboard', included: false, message: "Basic" },
+        { name: 'Storage Limit', included: false, message: "500" },
       ],
-      buttonText: 'Get Start',
+      buttonText: 'Mulai Sekarang',
     },
     {
       name: 'Simpel',
       price: 15000,
       originalPrice: 25000,
       features: [
-          { name: 'Pap tidak terbatas', included: true },
-          { name: 'Fitur streak', included: true },
-          { name: 'Download tanpa border', included: false },
-          { name: 'Preset Custom', included: false },
-          { name: 'Fitur mood harian', included: true },
-          { name: 'Fitur widget', included: false },
-        ],
-      buttonText: 'Upgrade Now',
+        { name: 'Daily PAP (unlimited)', included: true, message: "Unlimited" },
+        { name: 'Mood Tracking', included: true },
+        { name: 'Reaction Preset', included: false, message: "1 preset" },
+        { name: 'Download Foto (With Border)', included: false },
+        { name: 'Analytics Dashboard', included: true},
+        { name: 'Mood Analytics', included: true },
+        { name: 'Storage Limit', included: false, message: "500" },
+      ],
+      buttonText: 'Upgrade Sekarang',
       highlighted: true,
     },
     {
@@ -112,13 +115,13 @@ export const detailedPricingData: PricingTier[] = [
       price: 50000,
       originalPrice: 80000,
       features: [
-        { name: 'Pap tidak terbatas', included: true },
-        { name: 'Fitur streak', included: true },
-        { name: 'Download tanpa border', included: true },
-        { name: 'Preset Custom', included: true },
-        { name: 'Fitur mood harian', included: true },
-        { name: 'Fitur widget', included: true },
+        { name: 'Daily PAP (unlimited)', included: true, message: "Unlimited" },
+        { name: 'Mood Tracking', included: true },
+        { name: 'Reaction Preset', included: true, message: "Unlimited" },
+        { name: 'Download Foto (Without Border)', included: true },
+        { name: 'Analytics Dashboard', included: true, message: "Advanced" },
+        { name: 'Storage Limit', included: true, message: "Unlimited" },
       ],
-      buttonText: 'Upgrade Now',
+      buttonText: 'Upgrade Sekarang',
     },
   ];

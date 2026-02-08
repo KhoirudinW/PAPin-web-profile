@@ -35,7 +35,7 @@ function FeatureSection() {
 
                 <div className="flex flex-wrap gap-4 justify-center animate-fade-up delay-2">
                     <Link 
-                      href={'https://papin-dashboard-nqgv.vercel.app/login'} 
+                      href={'https://app.papin.biz.id'} 
                       className='px-8 py-4 bg-primary text-white rounded-2xl font-bold shadow-lg shadow-primary/20 hover:bg-primary-hovered hover:scale-105 active:scale-95 transition-all'
                     >
                       Mulai Hari Ini
