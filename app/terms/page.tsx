@@ -1,9 +1,13 @@
-import Header from '@/components/Header';
+import type { Metadata } from "next";
+import Header from "@/components/Header";
+import { buildPageMetadata } from "@/helpers/seo";
 
-export const metadata = {
-  title: 'Syarat & Ketentuan',
-  description: 'Aturan sederhana untuk menjaga kenyamanan dan keintiman di PAPin.',
-};
+export const metadata: Metadata = buildPageMetadata({
+  title: "Syarat dan Ketentuan PAPin",
+  description:
+    "Baca syarat penggunaan PAPin untuk menjaga kenyamanan, keamanan, dan keintiman ruang privat Anda dan pasangan.",
+  path: "/terms",
+});
 
 export default function TermsPage() {
   return (

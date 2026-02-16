@@ -1,10 +1,13 @@
-import Header from '@/components/Header';
+import type { Metadata } from "next";
+import Header from "@/components/Header";
+import { buildPageMetadata } from "@/helpers/seo";
 
-export const metadata = {
-    title: 'Tentang PAPin',
-    description:
-      'Pelajari visi, misi, dan perjalanan kami dalam memberikan layanan terbaik.',
-  };
+export const metadata: Metadata = buildPageMetadata({
+  title: "Tentang PAPin",
+  description:
+    "Kenali cerita, nilai, dan visi PAPin dalam membantu Anda dan pasangan membangun kedekatan lewat momen kecil setiap hari.",
+  path: "/about",
+});
   
 export default function AboutPage() {
   return (

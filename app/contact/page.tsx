@@ -1,11 +1,15 @@
+import type { Metadata } from "next";
 import { CustomerServices } from "@/data/socialmedia";
 import Image from "next/image";
-import Header from '@/components/Header';
+import Header from "@/components/Header";
+import { buildPageMetadata } from "@/helpers/seo";
 
-export const metadata = {
-    title: 'Hubungi Kami',
-    description: 'Punya pertanyaan? Hubungi tim support kami melalui email atau form kontak.',
-};
+export const metadata: Metadata = buildPageMetadata({
+  title: "Hubungi Tim PAPin",
+  description:
+    "Hubungi tim PAPin untuk pertanyaan produk, privasi, atau kerja sama. Kami siap membantu Anda dan pasangan.",
+  path: "/contact",
+});
 
 export default function ContactPage() {
     return (

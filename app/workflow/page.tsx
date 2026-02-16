@@ -1,10 +1,15 @@
-import React from 'react';
-import { steps } from '@/data/workflow';
+import type { Metadata } from "next";
+import { steps } from "@/data/workflow";
+import { buildPageMetadata } from "@/helpers/seo";
 
+export const metadata: Metadata = buildPageMetadata({
+  title: "Workflow PAPin",
+  description: "Halaman ini digunakan untuk kebutuhan pengembangan internal PAPin.",
+  path: "/workflow",
+  noIndex: true,
+});
 
-const WorkflowPage: React.FC = () => {
- 
-
+const WorkflowPage = () => {
   return (
     <div className="min-h-screen bg-linear-to-b from-cream to-white py-16 px-4">
       <div className="max-w-6xl mx-auto">

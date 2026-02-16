@@ -1,9 +1,13 @@
-import Header from '@/components/Header';
+import type { Metadata } from "next";
+import Header from "@/components/Header";
+import { buildPageMetadata } from "@/helpers/seo";
 
-export const metadata = {
-  title: 'Kebijakan Privasi',
-  description: 'Privasi adalah fondasi kami. Temukan bagaimana PAPin menjaga keamanan momen berharga Anda.',
-};
+export const metadata: Metadata = buildPageMetadata({
+  title: "Kebijakan Privasi PAPin",
+  description:
+    "Pelajari bagaimana PAPin melindungi data, foto, dan momen privat Anda dan pasangan dengan pendekatan privacy-first.",
+  path: "/privacy",
+});
 
 export default function PrivacyPage() {
   return (

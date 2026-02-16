@@ -1,11 +1,15 @@
-import React from 'react';
-import NewsCardContainer from '@/components/NewsCardContainer';
-import Breadcrumb from '@/components/Breadcrumb';
+import type { Metadata } from "next";
+import NewsCardContainer from "@/components/NewsCardContainer";
+import Breadcrumb from "@/components/Breadcrumb";
+import { buildPageMetadata } from "@/helpers/seo";
 
-export const metadata = {
-    title: 'Berita & Blog Terbaru',
-    description: 'Update informasi teknologi dan tips bisnis terbaru setiap minggu.',
-};
+export const metadata: Metadata = buildPageMetadata({
+  title: "Artikel PAPin",
+  description:
+    "Halaman artikel PAPin sedang disusun agar sepenuhnya relevan untuk kebutuhan hubungan dan pasangan.",
+  path: "/news",
+  noIndex: true,
+});
 
 export default function NewsPage() {
     const BCItems =[

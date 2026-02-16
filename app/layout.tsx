@@ -1,64 +1,81 @@
-import { Poppins } from 'next/font/google'
+import { Poppins } from "next/font/google";
+import type { Metadata } from "next";
+import Navbar from "@/components/Navbar";
+import BackToTop from "@/components/BackToTop";
+import FooterSection from "@/sections/landing/FooterSection";
+import {
+  BRAND_NAME,
+  BRAND_TAGLINE,
+  DEFAULT_DESCRIPTION,
+  DEFAULT_KEYWORDS,
+  SITE_URL,
+} from "@/helpers/seo";
 import "./globals.css";
-import Navbar from "@/components/Navbar"
-import BackToTop from "@/components/BackToTop"
-import FooterSection from "@/sections/landing/FooterSection"
-import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://papin.biz.id"),
-
+  metadataBase: new URL(SITE_URL),
+  applicationName: BRAND_NAME,
   title: {
-    default: "PAPin — Menjaga Kehadiran Setiap Hari",
-    template: "%s | PAPin — Menjaga Kehadiran Setiap Hari",
+    default: `${BRAND_NAME} - ${BRAND_TAGLINE}`,
+    template: `%s | ${BRAND_NAME}`,
   },
-
-  description:
-    "PAPin membantu pasangan tetap terhubung melalui rutinitas harian sederhana—berbagi foto, waktu, dan pesan penuh perhatian. Ruang privat untuk dua orang, aman dan penuh makna.",
-
-  keywords: [
-    "papin",
-    "aplikasi pasangan",
-    "aplikasi couple",
-    "hubungan jarak jauh",
-    "ldr couple app",
-    "daily photo couple",
-    "aplikasi hubungan",
-    "diary pasangan",
-  ],
-
+  description: DEFAULT_DESCRIPTION,
+  keywords: DEFAULT_KEYWORDS,
+  authors: [{ name: "PAPin Team" }],
+  creator: BRAND_NAME,
+  publisher: BRAND_NAME,
+  category: "lifestyle",
+  alternates: {
+    canonical: "/",
+  },
+  verification: {
+    google: "2a3f491a66374f64",
+  },
+  icons: {
+    icon: [{ url: "/assets/logo.png", type: "image/png" }],
+    apple: [{ url: "/assets/logo.png" }],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: "https://papin.biz.id",
-    siteName: "PAPin",
-    title: "PAPin — Menjaga Kehadiran Setiap Hari",
-    description:
-      "Ruang privat untuk dua orang, berbagi rutinitas harian sederhana yang penuh makna.",
+    url: SITE_URL,
+    siteName: BRAND_NAME,
+    title: `${BRAND_NAME} - ${BRAND_TAGLINE}`,
+    description: DEFAULT_DESCRIPTION,
     images: [
       {
-        url: "/og-image.png",
+        url: "/assets/logo.png",
         width: 1200,
         height: 630,
-        alt: "PAPin - Menjaga Kehadiran Setiap Hari",
+        alt: `${BRAND_NAME} - ${BRAND_TAGLINE}`,
       },
     ],
   },
-
   twitter: {
     card: "summary_large_image",
-    title: "PAPin — Menjaga Kehadiran Setiap Hari",
-    description:
-      "Aplikasi privat untuk pasangan agar tetap terhubung setiap hari.",
-    images: ["/og-image.png"],
+    title: `${BRAND_NAME} - ${BRAND_TAGLINE}`,
+    description: DEFAULT_DESCRIPTION,
+    images: ["/assets/logo.png"],
   },
 };
 
 const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-primary',
-})
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-primary",
+});
 
 export default function RootLayout({
   children,
@@ -66,15 +83,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${poppins.variable} antialiased pt-22`}
-      >
-        <Navbar/>
+    <html lang="id">
+      <body className={`${poppins.variable} antialiased pt-22`}>
+        <Navbar />
         {children}
         <BackToTop />
-        <FooterSection/>
-
+        <FooterSection />
       </body>
     </html>
   );

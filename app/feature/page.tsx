@@ -1,11 +1,15 @@
-import FeatureCard from '@/components/FeatureCard';
-import { FEATURES } from '@/data/features';
-import Header from '@/components/Header';
+import type { Metadata } from "next";
+import FeatureCard from "@/components/FeatureCard";
+import { FEATURES } from "@/data/features";
+import Header from "@/components/Header";
+import { buildPageMetadata } from "@/helpers/seo";
 
-export const metadata = {
-  title: 'Fitur PAPin',
-  description: 'Jelajahi berbagai fitur canggih yang kami sediakan untuk mempermudah kerja Anda.',
-};
+export const metadata: Metadata = buildPageMetadata({
+  title: "Fitur PAPin",
+  description:
+    "Lihat fitur utama PAPin seperti Daily PAP, Streak System, Timeline, dan Pair System untuk menjaga hubungan tetap hangat setiap hari.",
+  path: "/feature",
+});
 
 export default function FeaturesPage() {
   return (

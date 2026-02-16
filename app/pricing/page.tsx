@@ -1,9 +1,18 @@
 import React from 'react';
+import type { Metadata } from "next";
 import { Check, X } from 'lucide-react';
 import { detailedPricingData } from '@/data/price';
 import { rupiah } from '@/helpers/ConvertRupiah';
 import Header from '@/components/Header';
 import PricingButton from '@/components/PricingButton';
+import { buildPageMetadata } from "@/helpers/seo";
+
+export const metadata: Metadata = buildPageMetadata({
+  title: "Harga Paket PAPin",
+  description:
+    "Bandingkan paket Gratis, Simpel, dan Pro untuk memilih fitur yang paling cocok bagi Anda dan pasangan.",
+  path: "/pricing",
+});
 
 const PricingTable: React.FC = () => {
   return (
