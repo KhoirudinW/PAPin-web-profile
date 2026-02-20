@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import Script from 'next/script';
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
@@ -25,18 +25,17 @@ function trackPageView(url: string) {
 
 export default function GoogleAnalytics() {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   useEffect(() => {
     if (!pathname) {
       return;
     }
 
-    const query = searchParams.toString();
+    const query = window.location.search;
     const url = query ? `${pathname}?${query}` : pathname;
 
     trackPageView(url);
-  }, [pathname, searchParams]);
+  }, [pathname]);
 
   if (!GA_MEASUREMENT_ID) {
     return null;
