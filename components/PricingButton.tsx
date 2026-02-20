@@ -10,7 +10,7 @@ interface PricingButtonProps {
 
 const PricingButton: React.FC<PricingButtonProps> = ({ tierName, buttonText, variant = 'desktop' }) => {
   const handleClick = () => {
-    window.location.href = 'https://app.papin.biz.id';
+    window.location.href = 'https://app.papin.biz.id/settings/pricing';
   };
 
   const desktopClasses = `w-full py-4 px-8 rounded-2xl font-bold transition-all duration-300 active:scale-95 ${

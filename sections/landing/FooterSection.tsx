@@ -83,6 +83,7 @@ function FooterSection() {
                 <a
                   key={idx}
                   href={sm.link}
+                  target="_blank"
                   className="flex items-center gap-3 group transition-all"
                 >
                   <div className="bg-white p-2 rounded-2xl shadow-md group-hover:shadow-primary/20 group-hover:scale-110 transition-all border border-primary/5">

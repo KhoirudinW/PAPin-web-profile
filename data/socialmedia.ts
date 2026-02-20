@@ -18,40 +18,40 @@ export const SocialMedia: SosmedProps[] = [
         id: 1,
         logo: Wa,
         name: "Whatsapp",
-        link:'/'
+        link:'https://wa.me/62881036048566'
     },
-    {
-        id: 2,
-        logo: Tiktok,
-        name: "Tiktok",
-        link:'/'
-    },
+    // {
+    //     id: 2,
+    //     logo: Tiktok,
+    //     name: "Tiktok",
+    //     link:'/'
+    // },
     {
         id: 3,
         logo: Ig,
         name: "Instagram",
-        link:'/'
+        link:'https://www.instagram.com/papin_now/'
     },
     {
         id: 4,
         logo: Email,
         name: "Email",
-        link:'/'
+        link:'https://mailto:papin.corps@gmail.com'
     },
 ]
 export const CustomerServices: SosmedProps[] =[
     {
         id: 1,
         logo: Email,
-        content: 'papin.cs@gmail.com',
+        content: 'papin.corps@gmail.com',
         name: "Email",
         link:'/'
     },
     {
         id: 2,
         logo: Phone,
-        content: '+62 812-xxxx-xxxx',
+        content: '+62 881-0360-48566',
         name: 'Telepon',
-        link: 'tel:+62812xxxxxxx',
+        link: 'wa.me/62881036048566',
     },
 ]

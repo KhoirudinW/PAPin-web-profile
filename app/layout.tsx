@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import BackToTop from "@/components/BackToTop";
 import FooterSection from "@/sections/landing/FooterSection";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import {
   BRAND_NAME,
   BRAND_TAGLINE,
@@ -85,6 +86,7 @@ export default function RootLayout({
   return (
     <html lang="id">
       <body className={`${poppins.variable} antialiased pt-22`}>
+        <GoogleAnalytics />
         <Navbar />
         {children}
         <BackToTop />
